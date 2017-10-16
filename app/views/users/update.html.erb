@@ -1,0 +1,24 @@
+<h1>Edit: <%= @users.first_name %></h1>
+
+<form action='/users/<%= @users.id %>/edit' method='post'>
+<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+<input type='hidden' name ='_method' value='put'>
+  <table>
+         <tbody>
+           <tr>
+            <td>First Name:</td>
+            <td><input type='text' name='user[first_name]'  value='<%= @users.first_name %>'/> </td>
+           </tr>
+           <tr>
+            <td>Last Name:</td>
+            <td><input type='text' name='user[last_name]' value='<%= @users.last_name %>' /> </td>
+           </tr>
+           <tr>
+            <td>Email:</td>
+            <td><input type='text' name='user[email]' value='<%= @users.email %>'/> </td>
+           </tr>
+
+         </tbody>
+       </table>
+          <input type="submit" value="edit" />
+    </form>
