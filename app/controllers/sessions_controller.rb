@@ -11,16 +11,16 @@ class SessionsController < ApplicationController
   end
 
 
-  # def login
-  #   @user = User.find_by_email(params[:email])
-  #   if @user && @user.authenticate(params[:password])
-  #     session[:user_id]= @user.id
-  #     redirect_to  "/users/#{@user.id}/show"
-  #   else
-  #     render json: "credentials are incorrect"
-  #   end
-  #
-  # end
+  def login
+    @user = User.find_by_email(params[:email])
+    if @user && @user.authenticate(params[:password])
+      session[:user_id]= @user.id
+      redirect_to  "/users/#{@user.id}/show"
+    else
+      render json: "credentials are incorrect"
+    end
+
+  end
 
   def logout
     session.delete(:user_id)
